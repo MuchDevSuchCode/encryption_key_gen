@@ -18,3 +18,7 @@ Lastly, for added security a quick change in code/comments allows a user to defi
 - KEY_ITERATIONS=500000     # Number of PBKDF Iterations
 - KEYFILE_NAME = "key"      # By default the key file is named "key". Change the name here to anything you like - Not implemented yet.
 - KEY_EXPIRATION = 120      # Defines how long to leave the key file on the hard disk before deleting it. This is in seconds.
+
+## TO Do:
+- Add support for key file enabledment and file name conventions.
+- Add a list of valid parameters for the PBKDF function within the settings file.
