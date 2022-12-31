@@ -30,12 +30,14 @@ Lastly, for added security a quick change in code/comments allows a user to defi
 - Do NOT forget your seed/phrase or you will not be able to re-generate your encryption key/passphrase in the future. 
 
 ## App Settings - settings.py 
+```
 - KEY_ALGORITHM = "SHA256"  # Encryption Algorithm - Not implemented yet.
 - KEY_LENGTH = 128          # Encryption Key Length
 - KEY_SALT = "ABCDE12345"   # Enter a Static Salt - Please do not leave the default, this is for example purposes.
 - KEY_ITERATIONS=500000     # Number of PBKDF Iterations
 - KEYFILE_NAME = "key"      # By default the key file is named "key". Change the name here to anything you like - Not implemented yet.
 - KEY_EXPIRATION = 120      # Defines how long to leave the key file on the hard disk before deleting it. This is in seconds.
+```
 
 ## TO Do:
 - Add support for key file enablement/disablement and file name conventions.
