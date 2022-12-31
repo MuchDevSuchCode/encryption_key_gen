@@ -3,6 +3,7 @@ import os
 import time
 import getpass
 import settings
+from flask import Flask
 
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes

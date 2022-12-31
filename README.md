@@ -42,3 +42,4 @@ Lastly, for added security a quick change in code/comments allows a user to defi
 ## TO Do:
 - Add support for key file enablement/disablement and file name conventions.
 - Add a list of valid parameters for the PBKDF function within the settings file.
+- Add Flask app with UI to allow easy use.
