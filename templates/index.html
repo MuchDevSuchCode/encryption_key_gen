@@ -17,15 +17,21 @@
       <input type="password" class="form-control" id="passphrase" placeholder="Enter Passphrase" name="passphrase">
       <input class="form-check-input" type="checkbox" onclick="showPassphrase()" />
       <label class="form-check-label" for="flexCheckDefault">Show Passphrase</label>
-
     </div>
+
     <div class="mb-3">
       <label for="salt">Salt:</label>
       <input type="password" class="form-control" id="salt" placeholder="Enter Salt" name="salt">
       <input class="form-check-input" type="checkbox" onclick="showSalt()" />
       <label class="form-check-label" for="flexCheckDefault">Show Salt</label>
     </div>
+
     <button type="submit" class="btn btn-primary">Generate Key</button>
+  </br></br>
+    <div class="mb-3">
+      <label for="key">Encryption Key</label>
+      <textarea class="form-control" id="key" rows="5"></textarea>
+    </div>
   </form>
 </div>
 
