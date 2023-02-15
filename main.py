@@ -1,10 +1,10 @@
 from Encryption_Key_Gen import encryption_key
 from flask import Flask, render_template, request
+import logging
 
-import os
+logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 
 app = Flask(__name__)
-#app.secret_key = os.environ.get('APP_SECRET_KEY')
 
 @app.route('/', methods=['GET'])
 def index():
@@ -14,17 +14,9 @@ def index():
 def get_encryption():
     password = request.form.get('password')
     salt = request.form.get('salt')
-    print(f'Password: {password}')
-    print(f'Salt: {salt}')
     key = encryption_key(password, salt)
     key = key.get_key()
     return(key)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
-
-#password = 'Testing'
-#salt = "Right"
-#test = encryption_key(password, salt)
-#key = test.get_key()
-#print(key)

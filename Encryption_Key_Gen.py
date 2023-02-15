@@ -1,5 +1,8 @@
 import hashlib
 import settings
+import logging
+
+logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
@@ -15,13 +18,10 @@ class encryption_key:
         else:
             print('Using Custom Salt')
             self.salt = salt
-            
-        print(f'Entered salt {self.salt}')
-        print(f'Entered passphrase {self.password}')
 
     def get_key(self):
         # Create PBKDF2 instance
-        print(self.salt)
+        # print(self.salt)
         presalt = self.salt.encode()
         kdf = PBKDF2HMAC(
             algorithm=hashes.SHA512(),
@@ -36,27 +36,3 @@ class encryption_key:
         # Generate hash
         aes512_hash = hashlib.sha512(key).hexdigest()
         return aes512_hash
-
-
-# Create salt
-#salt = settings.KEY_SALT.encode()  # If you prefer to manually enter your salt and passphrase, comment this line and uncomment the two lines below.
-# salt = getpass.getpass("Enter your salt: ")
-# salt = salt.encode()
-# print(salt)
-
-
-
-
-
-# Print results
-# print("Salt: " + salt.hex())
-
-#print("Hash: " + aes512_hash)
-
-#f = open("key", "a")
-#f.write(f'{key}')
-#f.close()
-
-#time.sleep(settings.KEY_EXPIRATION)
-#print(f'Removing key file...')
-#os.remove("key")
