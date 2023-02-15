@@ -16,7 +16,8 @@ def get_encryption():
     salt = request.form.get('salt')
     key = encryption_key(passphrase, salt)
     key = key.get_key()
-    return(key)
+    # return(key)
+    return render_template("key.html", key=key)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
