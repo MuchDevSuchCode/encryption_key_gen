@@ -15,12 +15,15 @@
     <div class="mb-3 mt-3">
       <label for="passphrase">Email:</label>
       <input type="password" class="form-control" id="passphrase" placeholder="Enter Passphrase" name="passphrase">
-      <input type="checkbox" onclick="showPassphrase()">Show Passphrase
+      <input class="form-check-input" type="checkbox" onclick="showPassphrase()" />
+      <label class="form-check-label" for="flexCheckDefault">Show Passphrase</label>
+
     </div>
     <div class="mb-3">
       <label for="salt">Salt:</label>
       <input type="password" class="form-control" id="salt" placeholder="Enter Salt" name="salt">
-      <input type="checkbox" onclick="showSalt()">Show Passphrase
+      <input class="form-check-input" type="checkbox" onclick="showSalt()" />
+      <label class="form-check-label" for="flexCheckDefault">Show Salt</label>
     </div>
     <button type="submit" class="btn btn-primary">Generate Key</button>
   </form>
