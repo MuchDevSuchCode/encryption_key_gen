@@ -1,8 +1,7 @@
 from Encryption_Key_Gen import encryption_key
 from flask import Flask, render_template, request
 import logging
-
-logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
+import settings
 
 app = Flask(__name__)
 

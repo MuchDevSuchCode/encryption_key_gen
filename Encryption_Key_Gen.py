@@ -2,8 +2,6 @@ import hashlib
 import settings
 import logging
 
-logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
-
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
@@ -13,11 +11,12 @@ class encryption_key:
         self.passphrase = passphrase
         self.salt = salt
         if salt == '':
-            print('Using Default Salt')
             self.salt = settings.KEY_SALT
+            print(f'Using Default Salt: {self.salt}')
         else:
-            print('Using Custom Salt')
             self.salt = salt
+            print(f'Using Custom Salt: {self.salt}')
+            
 
     def get_key(self):
         # Create PBKDF2 instance
@@ -34,5 +33,7 @@ class encryption_key:
         key = kdf.derive(self.passphrase.encode())
 
         # Generate hash
+        
         aes512_hash = hashlib.sha512(key).hexdigest()
+        
         return aes512_hash
