@@ -2,7 +2,9 @@ from Encryption_Key_Gen import encryption_key
 from flask import Flask, render_template, request
 import logging
 import settings
+import logging
 
+logging.basicConfig(filename='app.log', level=logging.DEBUG)
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
@@ -15,7 +17,7 @@ def get_encryption():
     salt = request.form.get('salt')
     key = encryption_key(passphrase, salt)
     key = key.get_key()
-    # return(key)
+    # app.logger.debug(f"Test")
     return render_template("key.html", key=key)
 
 if __name__ == '__main__':
