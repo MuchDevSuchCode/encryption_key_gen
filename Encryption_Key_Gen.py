@@ -9,8 +9,8 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 class encryption_key:
-    def __init__(self, password, salt):
-        self.password = password
+    def __init__(self, passphrase, salt):
+        self.passphrase = passphrase
         self.salt = salt
         if salt == '':
             print('Using Default Salt')
@@ -31,7 +31,7 @@ class encryption_key:
             backend=default_backend()
         )
         # Generate derived key
-        key = kdf.derive(self.password.encode())
+        key = kdf.derive(self.passphrase.encode())
 
         # Generate hash
         aes512_hash = hashlib.sha512(key).hexdigest()
