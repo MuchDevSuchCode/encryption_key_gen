@@ -21,7 +21,7 @@ def get_encryption():
     return(key)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
 
 #password = 'Testing'
 #salt = "Right"
