@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('encryption_key_gen.html')
+    return render_template('index.html')
 
 @app.route('/', methods=['POST'])
 def get_encryption():
