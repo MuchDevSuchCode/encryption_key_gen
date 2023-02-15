@@ -6,14 +6,18 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 class encryption_key:
-    def __init__(self, password, salt='placeholder'):
+    def __init__(self, password, salt):
         self.password = password
+        self.salt = salt
         if salt == '':
+            print('Using Default Salt')
             self.salt = settings.KEY_SALT
         else:
+            print('Using Custom Salt')
             self.salt = salt
-        print(self.salt)
-        print(self.password)
+            
+        print(f'Entered salt {self.salt}')
+        print(f'Entered passphrase {self.password}')
 
     def get_key(self):
         # Create PBKDF2 instance

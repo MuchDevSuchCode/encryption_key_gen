@@ -12,10 +12,10 @@ def index():
 
 @app.route('/', methods=['POST'])
 def get_encryption():
-    password = request.args.get('password')
-    salt = request.args.get('salt')
-    print(password)
-    print(salt)
+    password = request.form.get('password')
+    salt = request.form.get('salt')
+    print(f'Password: {password}')
+    print(f'Salt: {salt}')
     key = encryption_key(password, salt)
     key = key.get_key()
     return(key)
